@@ -17,4 +17,4 @@
 # Memo
 배포 전에 시간 맞춰서 CURD 추가하기
 
-update create delete
+Create Update Read Delete
