@@ -1,0 +1,303 @@
+{
+  '$schema': "http://adaptivecards.io/schemas/adaptive-card.json",
+  type: "AdaptiveCard",
+  version: "1.5",
+  body: [
+    {
+      type: "ColumnSet",
+      columns: [
+        {
+          type: "Column",
+          width: "stretch",
+          items: [
+            {
+              type: "TextBlock",
+              text: "SAP Product Create",
+              weight: "Bolder",
+              size: "Large"
+            }
+          ]
+        },
+        {
+          type: "Column",
+          width: "auto",
+          items: [
+            {
+              type: "Image",
+              url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/SAP-Logo.svg/1115px-SAP-Logo.svg.png",
+              size: "Small",
+              horizontalAlignment: "Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      type: "ColumnSet",
+      columns: [
+        {
+          type: "Column",
+          width: 1,
+          items: [
+            {
+              type: "TextBlock",
+              text: "Product ID:",
+              weight: "Bolder"
+            }
+          ]
+        },
+        {
+          type: "Column",
+          width: 2,
+          items: [
+            {
+              type: "TextBlock",
+              text: Topic.ProductID
+            }
+          ]
+        }
+      ]
+    },
+    {
+      type: "ColumnSet",
+      columns: [
+        {
+          type: "Column",
+          width: 1,
+          items: [
+            {
+              type: "TextBlock",
+              text: "Name:",
+              weight: "Bolder"
+            }
+          ]
+        },
+        {
+          type: "Column",
+          width: 2,
+          items: [
+            {
+              type: "Input.Text",
+              id: "productName",
+              placeholder: "Enter product name",
+              value: Blank()
+            }
+          ]
+        }
+      ]
+    },
+    {
+      type: "ColumnSet",
+      columns: [
+        {
+          type: "Column",
+          width: 1,
+          items: [
+            {
+              type: "TextBlock",
+              text: "Description:",
+              weight: "Bolder"
+            }
+          ]
+        },
+        {
+          type: "Column",
+          width: 2,
+          items: [
+            {
+              type: "Input.Text",
+              id: "description",
+              isMultiline: true,
+              placeholder: "Enter product description",
+              value: Blank()
+            }
+          ]
+        }
+      ]
+    },
+    {
+      type: "ColumnSet",
+      columns: [
+        {
+          type: "Column",
+          width: 1,
+          items: [
+            {
+              type: "TextBlock",
+              text: "Category:",
+              weight: "Bolder"
+            }
+          ]
+        },
+        {
+          type: "Column",
+          width: 2,
+          items: [
+            {
+              type: "Input.ChoiceSet",
+              id: "category",
+              choices: [
+                {
+                    title: "Accessories",
+                    value: "Accessories"
+                },
+                {
+                    title: "Notebooks",
+                    value: "Notebooks"
+                },
+                {
+                    title: "Laser Printers",
+                    value: "Laser Printers"
+                },
+                {
+                    title: "Mice",
+                    value: "Mice"
+                },
+                {
+                    title: "Keyboards",
+                    value: "Keyboards"
+                },
+                {
+                    title: "Mousepads",
+                    value: "Mousepads"
+                },
+                {
+                    title: "Scanners",
+                    value: "Scanners"
+                },
+                {
+                    title: "Speakers",
+                    value: "Speakers"
+                },
+                {
+                    title: "Headsets",
+                    value: "Headsets"
+                },
+                {
+                    title: "Software",
+                    value: "Software"
+                },
+                {
+                    title: "PCs",
+                    value: "PCs"
+                },
+                {
+                    title: "Smartphones",
+                    value: "Smartphones"
+                },
+                {
+                    title: "Tablets",
+                    value: "Tablets"
+                },
+                {
+                    title: "Servers",
+                    value: "Servers"
+                },
+                {
+                    title: "Projectors",
+                    value: "Projectors"
+                },
+                {
+                    title: "MP3 Players",
+                    value: "MP3 Players"
+                },
+                {
+                    title: "Camcorders",
+                    value: "Camcorders"
+                }
+            ],
+              placeholder: "Enter product category"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      type: "ColumnSet",
+      columns: [
+        {
+          type: "Column",
+          width: 1,
+          items: [
+            {
+              type: "TextBlock",
+              text: "Price:",
+              weight: "Bolder"
+            }
+          ]
+        },
+        {
+          type: "Column",
+          width: 2,
+          items: [
+            {
+              type: "Input.Number",
+              id: "price",
+              placeholder: "Enter price",
+              value: Blank()
+            }
+          ]
+        }
+      ]
+    },
+    {
+      type: "ColumnSet",
+      columns: [
+        {
+          type: "Column",
+          width: 1,
+          items: [
+            {
+              type: "TextBlock",
+              text: "Currency:",
+              weight: "Bolder"
+            }
+          ]
+        },
+        {
+          type: "Column",
+          width: 2,
+          items: [
+            {
+              type: "Input.ChoiceSet",
+              id: "currencyCode",
+              choices: [
+                {
+                    title: "USD",
+                    value: "USD"
+                },
+                {
+                    title: "EUR",
+                    value: "EUR"
+                },
+                {
+                    title: "GBP",
+                    value: "GBP"
+                },
+                {
+                    title: "JPY",
+                    value: "JPY"
+                },
+                {
+                    title: "CAD",
+                    value: "CAD"
+                }
+              ],
+              placeholder: "Enter currency code"
+            }
+          ]
+        }
+      ]
+    }
+  ] ,
+  actions: [
+    {
+      type: "Action.Submit",
+      title: "Create Product",
+      horizontalAlignment: "Center",
+      data: {
+        action: "submitProductCreate"
+      }
+    }
+  ]
+}
