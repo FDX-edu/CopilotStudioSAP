@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>SAP 제품관리 에이전트</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      height: 100vh;
+      background-color: #f7f9fc;
+    }
+
+    /* side */
+    #chat-sidebar {
+      width: 350px;
+      height: 100vh;
+      background-color: #ffffff;
+      box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid #ddd;
+    }
+
+    #chat-header {
+      padding: 16px;
+      background-color: #000099;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    #webchat {
+      flex: 1;
+    }
+
+    /* main */
+    #main-content {
+      flex: 1;
+      padding: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="chat-sidebar">
+  <div id="chat-header">💬 SAP 에이전트</div>
+  <div id="webchat"></div>
+</div>
+
+<div id="main-content">
+  <p>에이전트를 통한 제품 등록, 수정, 삭제.</p>
+</div>
+
+<!-- Bot Framework WebChat -->
+<script src="https://cdn.botframework.com/botframework-webchat/latest/webchat.js"></script>
+<script>
+  (async function () {
+    const tokenEndpointURL = 'https://f28e2341bcf0ee2cb492a8750ab378.14.environment.api.powerplatform.com/powervirtualagents/botsbyschema/crdf7_sap1/directline/token?api-version=2022-03-01-preview';
+    const locale = 'ko';
+    const apiVersion = new URL(tokenEndpointURL).searchParams.get('api-version');
+
+    const [directLineURL, token] = await Promise.all([
+      fetch(new URL(`/powervirtualagents/regionalchannelsettings?api-version=${apiVersion}`, tokenEndpointURL))
+        .then(r => r.json()).then(res => res.channelUrlsById.directline),
+      fetch(tokenEndpointURL).then(r => r.json()).then(res => res.token)
+    ]);
+
+    const directLine = WebChat.createDirectLine({
+      domain: new URL('v3/directline', directLineURL),
+      token
+    });
+
+    directLine.connectionStatus$.subscribe({
+      next(value) {
+        if (value === 2) {
+          directLine.postActivity({
+            type: 'event',
+            name: 'startConversation',
+            from: { id: 'user' },
+            locale
+          }).subscribe();
+        }
+      }
+    });
+
+    WebChat.renderWebChat({
+      directLine,
+      locale,
+      styleOptions: {
+        accent: '#000099',
+        bubbleBackground: '#e8f0ff',
+        bubbleFromUserBackground: '#d1ffd6',
+        hideUploadButton: true,
+        botAvatarInitials: '🤖',
+        userAvatarInitials: '🙂',
+        backgroundColor: '#ffffff'
+      }
+    }, document.getElementById('webchat'));
+  })();
+</script>
+
+</body>
+</html>
