@@ -4,7 +4,7 @@
 | ------------- | ---- | ------------------------ | -------- |
 | 10:00 - 10:30 | 30분 | Copilot Studio 제품 소개 | |
 | 10:30 - 10:40 | 10분 | 쉬는시간                 | |
-| 10:40 - 11:30 | 50분 | Copilot 생성             | [Copilot Studio 접속 및 기본 환경 설정, UI 탐색](https://github.com/FDX-edu/CopilotStudioSAP/blob/main/1.%20Copilot%20%EC%83%9D%EC%84%B1/1-1.%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%20%EC%A0%91%EC%86%8D%2C%20%ED%99%98%EA%B2%BD%20%EC%84%A4%EC%A0%95%2C%20UI%20%ED%83%90%EC%83%89.md) </br> SAP Demo 계정 설정 </br> 에이전트 생성    |
+| 10:40 - 11:30 | 50분 | Copilot 생성             | [Copilot Studio 접속 및 기본 환경 설정, UI 탐색](https://github.com/FDX-edu/CopilotStudioSAP/blob/main/1.%20Copilot%20%EC%83%9D%EC%84%B1/1-1.%20%EC%BD%94%ED%8C%8C%EC%9D%BC%EB%9F%BF%20%EC%8A%A4%ED%8A%9C%EB%94%94%EC%98%A4%20%EC%A0%91%EC%86%8D%20%EB%B0%8F%20UI%20%ED%83%90%EC%83%89.md) </br> SAP Demo 계정 설정 </br> 에이전트 생성    |
 | 11:30 - 13:00 | 90분 | 점심시간                 | |
 | 13:00 - 13:50 | 50분 | SAP 조회                 | SAP 데이터 분류별 조회 </br> 적응형 카드 기반으로 SAP 아이디별 조회                             |
 | 13:50 - 14:00 | 10분 | 쉬는시간                 | |
